@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bd6dpuotpgqfc"]
+
+[ext_resource type="Texture2D" uid="uid://bxrk4js2h1n2u" path="res://download.svg" id="1_ikolo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkns4"]
+radius = 123.32072
+
+[node name="ScoreStar" type="Area2D" unique_id=205577236]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=892935845]
+texture = ExtResource("1_ikolo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842065107]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_qkns4")
