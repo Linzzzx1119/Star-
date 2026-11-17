@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a8b7d"/><stop offset=".55" stop-color="#66564b"/><stop offset="1" stop-color="#382e2a"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff4d24"/><stop offset=".55" stop-color="#ff9d25"/><stop offset="1" stop-color="#fff07a"/>
+    </linearGradient>
+  </defs>
+  <path d="M123 111 25 202l119-58Z" fill="url(#flame)" stroke="#db4b21" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M113 126 51 189l79-43Z" fill="#ffe77a" opacity=".9"/>
+  <path d="m128 25 24 15 30-3 14 24 28 15-2 30 13 27-18 24-8 29-29 8-24 19-27-13-30 2-15-25-25-15 3-30-13-26 18-25 8-29 29-8Z" fill="url(#rock)" stroke="#332923" stroke-width="8" stroke-linejoin="round"/>
+  <path d="m91 75 22-12 15 10-9 18-22 5-13-9Z" fill="#b4a395" opacity=".65"/>
+  <path d="m157 106 23-7 11 14-8 18-19 4-13-12Z" fill="#332d29" opacity=".75"/>
+  <path d="m108 151 19-8 12 11-7 17-20 4-10-11Z" fill="#b4a395" opacity=".5"/>
+  <circle cx="161" cy="67" r="8" fill="#c2b3a3" opacity=".7"/>
+</svg>
