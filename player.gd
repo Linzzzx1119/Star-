@@ -1,6 +1,8 @@
 extends Area2D
 
-var speed = 300
+var max_speed = 500
+var velocity := Vector2(0,0)
+var steering_factor := 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +11,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction_x = Input.get_axis("move_left","move_right")
-	var direction_y = Input.get_axis("move_down","move_up")
-	position.x = direction_x * speed * delta
-	position.y = direction_y * speed * delta
+	var direction := Vector2(0,0)
+	direction.x = Input.get_axis("move_left","move_right")
+	direction.y = Input.get_axis("move_up","move_down")
+	
+	if direction.length() > 1.0:
+		direction = direction.normalized()
+
+	var desired_velocity : Vector2 = max_speed * direction
+	var steering := desired_velocity - velocity
+	velocity += steering * steering_factor * delta
+	position += velocity * delta
+
+	if velocity.length() > 0.0:
+		rotation = velocity.angle()
