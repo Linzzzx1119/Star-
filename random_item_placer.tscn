@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cmntc0um7cgh2"]
+
+[ext_resource type="Script" uid="uid://byxd4bse532cw" path="res://random_item_placer.gd" id="1_1wax0"]
+
+[node name="RandomItemPlacer" type="Node2D" unique_id=1805904199]
+script = ExtResource("1_1wax0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1958698147]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

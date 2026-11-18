@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://ckcpats3oikb7"]
 
 [ext_resource type="Texture2D" uid="uid://icc16rq6op4w" path="res://download (2).svg" id="1_gf172"]
+[ext_resource type="Script" uid="uid://cjt36w1n82k44" path="res://health_srar.gd" id="1_rq4f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkns4"]
 radius = 121.92621
 
 [node name="HealthStar" type="Area2D" unique_id=1839301033]
+script = ExtResource("1_rq4f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=871769148]
 texture = ExtResource("1_gf172")
@@ -13,3 +15,5 @@ texture = ExtResource("1_gf172")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652955430]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_qkns4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
