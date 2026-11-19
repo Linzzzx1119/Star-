@@ -35,6 +35,13 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.length() > 0.0:
 		rotation = velocity.angle()
+		
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = bullet_scene.instantiate()
+		bullet.position = position
+		bullet.rotation = rotation
+		bullet.velocity = Vector2.from_angle(rotation) * bullet.speed
+		get_tree().current_scene.add_child(bullet)
 
 	
 
@@ -47,9 +54,3 @@ func _on_area_entered(area_that_entered: Area2D) -> void:
 	set_health(health + 10)
 
 		
-	if Input.is_action_just_pressed("shoot"):
-		var bullet = bullet_scene.instantiate()
-		bullet.position = position
-		bullet.rotation = rotation
-		bullet.velocity = Vector2.from_angle(rotation) * bullet.speed
-		get_tree().current_scene.add_child(bullet)
