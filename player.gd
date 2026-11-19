@@ -32,5 +32,5 @@ func _physics_process(delta: float) -> void:
 		var bullet = bullet_scene.instantiate()
 		bullet.position = position
 		bullet.rotation = rotation
-		bullet.velocity = velocity.normalized() * bullet.speed
+		bullet.velocity = Vector2.from_angle(rotation) * bullet.speed
 		get_tree().current_scene.add_child(bullet)
