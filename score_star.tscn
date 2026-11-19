@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bxrk4js2h1n2u" path="res://download.svg" id="1_ikolo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkns4"]
-radius = 18.0
+radius = 12.0
 
 [node name="ScoreStar" type="Area2D" unique_id=205577236]
+collision_layer = 2
 script = ExtResource("1_8p3hi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=892935845]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ikolo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842065107]

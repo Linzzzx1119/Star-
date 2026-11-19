@@ -9,6 +9,7 @@ bg_color = Color(0.3918009, 0.6847265, 0.3355963, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1048642383]
 scale = Vector2(0.5, 0.5)
+collision_mask = 7
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=65632268]

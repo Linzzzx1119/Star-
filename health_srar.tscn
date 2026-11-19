@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://cjt36w1n82k44" path="res://health_srar.gd" id="1_rq4f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkns4"]
-radius = 18.027756
+radius = 12.0
 
 [node name="HealthStar" type="Area2D" unique_id=1839301033]
+collision_layer = 4
 script = ExtResource("1_rq4f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=871769148]
 position = Vector2(-7.6293945e-06, 0)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_gf172")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652955430]

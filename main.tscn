@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b2eyxtt76fi81" path="res://Blue Nebula 8 - 1024x1024.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://o61vq83enu3a" path="res://maze.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cvwj820xo36h1" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ckcpats3oikb7" path="res://health_srar.tscn" id="5_7mycd"]
 
 [node name="Main" type="Node2D" unique_id=285239404]
 
@@ -27,3 +28,6 @@ limit_left = -100
 limit_top = -100
 limit_right = 1900
 limit_bottom = 1700
+
+[node name="HealthStar" parent="." unique_id=1839301033 instance=ExtResource("5_7mycd")]
+position = Vector2(165, 166)
