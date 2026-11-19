@@ -2,14 +2,22 @@ extends CharacterBody2D
 
 var max_speed = 500
 var steering_factor := 3
+var health := 10
 var bullet_scene = preload("res://bullet.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
+
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(0,0)
 	
@@ -27,6 +35,17 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.length() > 0.0:
 		rotation = velocity.angle()
+
+	
+
+func set_health(new_health: int) -> void:
+	health = new_health
+	get_node("UI/HealthBar").value = health
+
+
+func _on_area_entered(area_that_entered: Area2D) -> void:
+	set_health(health + 10)
+
 		
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bullet_scene.instantiate()

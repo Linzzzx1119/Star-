@@ -2,17 +2,48 @@
 
 [ext_resource type="Script" uid="uid://rgt02l6w6bbr" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cjhvk6ot3w3bi" path="res://playerShip1_blue.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bxrk4js2h1n2u" path="res://download.svg" id="3_i3pqv"]
 
-[node name="Player" type="CharacterBody2D" unique_id=969590299]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.3918009, 0.6847265, 0.3355963, 1)
+
+[node name="Player" type="CharacterBody2D" unique_id=1048642383]
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=65632268]
 rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_onrkg")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=180059541]
-position = Vector2(-4.7683716e-07, -1.5298986e-07)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1967307794]
 rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-36, 6.199357e-07, -14.000001, -12, -10.000002, -38, 7.999999, -38, 11.999999, -14.000002, 36, -2.5272843e-06, 40, -2.0000026, 44, -8.000003, 52, -6.0000033, 48, 23.999996, 44, 25.999996, 40, 21.999996, 36, 23.999996, 14.000001, 28, 8.000002, 38, -7.999998, 38, -13.999999, 28, -34, 24, -40, 20, -42, 26, -46, 26, -50, -5.9999986, -48, -7.999999, -44, -7.999999, -40, 7.947813e-07)
+polygon = PackedVector2Array(-9, -38, -12, -12, -36, 2, -40, -1, -44, -6, -49, -6, -49, 5, -46, 25, -43, 25, -41, 21, -35, 24, -14, 28, -8, 38, 8, 38, 14, 28, 37, 24, 42, 20, 42, 25, 47, 25, 49, 2, 49, -5, 47, -7, 44, -5, 41, 0, 36, 2, 12, -12, 9, -38)
+
+[node name="UI" type="Control" parent="." unique_id=1337304909]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 61.0
+offset_bottom = -56.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=391817588]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 8.0
+offset_right = 93.0
+offset_bottom = 21.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="UI" unique_id=75477843]
+position = Vector2(47.000004, -8.999999)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_i3pqv")
+
+[node name="Label" type="Label" parent="UI" unique_id=44491533]
+layout_mode = 0
+offset_left = 59.0
+offset_top = -20.0
+offset_right = 99.0
+offset_bottom = 3.0
+text = "x0"
