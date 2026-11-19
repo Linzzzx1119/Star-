@@ -18,6 +18,11 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		queue_free()
 
+	position += velocity * delta
+
+	if velocity.length() > 0.0:
+		get_node("Sprite2D").rotation = velocity.angle()
+
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(0,0)
 	
@@ -33,8 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-	if velocity.length() > 0.0:
-		rotation = velocity.angle()
+
 
 	
 
