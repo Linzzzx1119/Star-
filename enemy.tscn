@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://bpn7l0nf4at47" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://qeayc2pc2s1n" path="res://enemyShip.png" id="1_7k104"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v8is4"]
-radius = 104.292854
-
 [node name="Enemy" type="Area2D" unique_id=1279010649]
 script = ExtResource("1_4gyqm")
 
@@ -13,8 +10,7 @@ script = ExtResource("1_4gyqm")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_7k104")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1928951781]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_v8is4")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1898425811]
+polygon = PackedVector2Array(-21, -12, -25, -2, -13, 13, -10, 13, -9, 13, -9, 11, -14, -2, -10, 0, -6, 8, 6, 8, 10, 0, 14, -2, 9, 13, 14, 13, 25, 0, 25, -2, 21, -13, 15, -13, 15, -11, 9, -9, 5, -13, -5, -13, -9, -10, -15, -11, -15, -13, -21, -13)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
