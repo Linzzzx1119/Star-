@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var max_speed = 500
-var steering_factor := 3
+var max_speed = 300
+var steering_factor := 5
 var health := 10
 var bullet_scene = preload("res://bullet.tscn")
 
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if velocity.length() > 0.0:
-		rotation = velocity.angle()
+		get_node("Sprite2D").rotation = velocity.angle()
 		
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bullet_scene.instantiate()

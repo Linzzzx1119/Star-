@@ -7,17 +7,16 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
 bg_color = Color(0.3918009, 0.6847265, 0.3355963, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1048642383]
+[node name="Player" type="CharacterBody2D" unique_id=1048642383 groups=["player"]]
 scale = Vector2(0.5, 0.5)
+collision_mask = 2
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=65632268]
-rotation = 1.5707964
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1967307794]
-rotation = 1.5707964
-polygon = PackedVector2Array(-9, -38, -12, -12, -36, 2, -40, -1, -44, -6, -49, -6, -49, 5, -46, 25, -43, 25, -41, 21, -35, 24, -14, 28, -8, 38, 8, 38, 14, 28, 37, 24, 42, 20, 42, 25, 47, 25, 49, 2, 49, -5, 47, -7, 44, -5, 41, 0, 36, 2, 12, -12, 9, -38)
+polygon = PackedVector2Array(-26, -46, -26, -42, -22, -40, -28, -14, -38, -8, -38, 8, -28, 16, -24, 36, -20, 42, -26, 44, -26, 48, 6, 50, 8, 46, 4, 42, 0, 40, -2, 36, 12, 12, 38, 8, 38, -8, 12, -12, -2, -36, 0, -42, 6, -44, 6, -48, 2, -50)
 
 [node name="UI" type="Control" parent="." unique_id=1337304909]
 layout_mode = 3

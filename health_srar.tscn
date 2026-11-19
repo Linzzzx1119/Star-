@@ -6,7 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkns4"]
 radius = 18.027756
 
-[node name="HealthStar" type="Area2D" unique_id=1839301033]
+[node name="HealthStar" type="Area2D" unique_id=1839301033 groups=["health star"]]
+collision_layer = 8
 script = ExtResource("1_rq4f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=871769148]
@@ -17,4 +18,4 @@ texture = ExtResource("1_gf172")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652955430]
 shape = SubResource("CircleShape2D_qkns4")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
