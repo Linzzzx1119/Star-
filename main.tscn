@@ -1,20 +1,29 @@
 [gd_scene format=3 uid="uid://ba7ec050cpo5p"]
 
 [ext_resource type="Texture2D" uid="uid://b2eyxtt76fi81" path="res://Blue Nebula 8 - 1024x1024.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://o61vq83enu3a" path="res://maze.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cvwj820xo36h1" path="res://player.tscn" id="2_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=285239404]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1581164326]
 z_index = -1
-offset_right = 4000.0
-offset_bottom = 3000.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 1900.0
+offset_bottom = 1700.0
 mouse_filter = 2
 texture = ExtResource("1_0xm2m")
 expand_mode = 1
 stretch_mode = 1
 
+[node name="Maze" parent="." unique_id=209591573 instance=ExtResource("2_1bvp3")]
+
 [node name="Player" parent="." unique_id=494642955 instance=ExtResource("2_h2yge")]
-position = Vector2(1000, 600)
+position = Vector2(78, 72)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1218804449]
+limit_left = -100
+limit_top = -100
+limit_right = 1900
+limit_bottom = 1700
