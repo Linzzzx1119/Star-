@@ -114,7 +114,7 @@ texture = ExtResource("2_h41xc")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_r8vjc"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_u11kd")
 
 [node name="Maze" type="Node2D" unique_id=209591573]
