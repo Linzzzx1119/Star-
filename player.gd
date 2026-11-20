@@ -16,8 +16,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta: float) -> void:
-	if health <= 0:
-		queue_free()
 
 	position += velocity * delta
 
@@ -51,6 +49,8 @@ func _physics_process(delta: float) -> void:
 func set_star_count(new_star_count: int) -> void:
 	star_count = new_star_count
 	get_node("UI/StarCount").text = "x" + str(star_count)
+	if  star_count >= 5:
+		get_node("Camera2D/Win UI").show()
 	
 
 func set_health(new_health: int) -> void:
@@ -59,7 +59,7 @@ func set_health(new_health: int) -> void:
 		health = 100
 	elif health < 0:
 		health = 0
-		queue_free()
+		get_node("Camera2D/Lose UI").show()
 	get_node("UI/HealthBar").value = health
 
 
