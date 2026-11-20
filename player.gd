@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 func set_star_count(new_star_count: int) -> void:
 	star_count = new_star_count
 	get_node("UI/StarCount").text = "x" + str(star_count)
-	if  star_count >= 5:
+	if  star_count >= 50:
 		get_node("Camera2D/Win UI").show()
 	
 
