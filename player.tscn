@@ -4,8 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cjhvk6ot3w3bi" path="res://playerShip1_blue.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bxrk4js2h1n2u" path="res://download.svg" id="3_i3pqv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0.35352802, 0.5072616, 0.48969728, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
-bg_color = Color(0.3918009, 0.6847265, 0.3355963, 1)
+bg_color = Color(0.17672163, 0.6864492, 0.64719105, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Player" type="CharacterBody2D" unique_id=1048642383 groups=["player"]]
 scale = Vector2(0.5, 0.5)
@@ -16,6 +27,11 @@ script = ExtResource("1_onrkg")
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1967307794]
+polygon = PackedVector2Array(-26, -46, -26, -42, -22, -40, -28, -14, -38, -8, -38, 8, -28, 16, -24, 36, -20, 42, -26, 44, -26, 48, 6, 50, 8, 46, 4, 42, 0, 40, -2, 36, 12, 12, 38, 8, 38, -8, 12, -12, -2, -36, 0, -42, 6, -44, 6, -48, 2, -50)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=508150449]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1327529083]
 polygon = PackedVector2Array(-26, -46, -26, -42, -22, -40, -28, -14, -38, -8, -38, 8, -28, 16, -24, 36, -20, 42, -26, 44, -26, 48, 6, 50, 8, 46, 4, 42, 0, 40, -2, 36, 12, 12, 38, 8, 38, -8, 12, -12, -2, -36, 0, -42, 6, -44, 6, -48, 2, -50)
 
 [node name="UI" type="Control" parent="." unique_id=1337304909]
@@ -32,7 +48,9 @@ offset_left = 25.0
 offset_top = 8.0
 offset_right = 93.0
 offset_bottom = 21.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+value = 50.0
 show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="UI" unique_id=75477843]
@@ -40,10 +58,12 @@ position = Vector2(47.000004, -8.999999)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_i3pqv")
 
-[node name="Label" type="Label" parent="UI" unique_id=44491533]
+[node name="StarCount" type="Label" parent="UI" unique_id=44491533]
 layout_mode = 0
 offset_left = 59.0
 offset_top = -20.0
 offset_right = 99.0
 offset_bottom = 3.0
 text = "x0"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

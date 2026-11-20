@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var max_speed = 300
 var steering_factor := 5
-var health := 10
+var health := 50
 var bullet_scene = preload("res://bullet.tscn")
 var star_count := 0
 
@@ -38,6 +38,16 @@ func _physics_process(delta: float) -> void:
 	velocity += steering * steering_factor * delta
 	
 	move_and_slide()
+	
+	
+	if Input.is_action_just_pressed("shoot"):
+		var bullet = bullet_scene.instantiate()
+		bullet.position = position
+		bullet.rotation = get_node("Sprite2D").rotation
+		bullet.velocity = Vector2.from_angle(get_node("Sprite2D").rotation) * bullet.speed
+		get_tree().current_scene.add_child(bullet)
+
+
 func set_star_count(new_star_count: int) -> void:
 	star_count = new_star_count
 	get_node("UI/StarCount").text = "x" + str(star_count)
@@ -45,16 +55,16 @@ func set_star_count(new_star_count: int) -> void:
 
 func set_health(new_health: int) -> void:
 	health = new_health
+	if health > 100:
+		health = 100
+	elif health < 0:
+		health = 0
+		queue_free()
 	get_node("UI/HealthBar").value = health
 
-func _on_body_entered(area_that_entered: Area2D) -> void:
-	if area_that_entered.is_in_group("ScoreStar"):
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("score star"):
 		set_star_count(star_count + 1)
-	elif area_that_entered.is_in_group("HealthStar"):
-		set_health(health + 10)
-
-
-func _on_area_entered(area_that_entered: Area2D) -> void:
-	set_health(health + 10)
-
-		
+	elif area.is_in_group("health star"):
+		set_health(health + 20)

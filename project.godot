@@ -25,6 +25,7 @@ window/stretch/aspect="expand"
 player=""
 "score star"=""
 "health star"=""
+bullet=""
 
 [input]
 
@@ -64,6 +65,7 @@ shoot={
 2d_physics/layer_2="wall"
 2d_physics/layer_3="score star"
 2d_physics/layer_4="health star"
+2d_physics/layer_5="enemy"
 
 [physics]
 
