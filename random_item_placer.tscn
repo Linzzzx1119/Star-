@@ -1,9 +1,26 @@
 [gd_scene format=3 uid="uid://cmntc0um7cgh2"]
 
-[ext_resource type="Script" uid="uid://byxd4bse532cw" path="res://random_item_placer.gd" id="1_1wax0"]
+[sub_resource type="GDScript" id="GDScript_madbp"]
+script/source = "extends Node2D
+
+var item_prefabs := [preload(\"res://health_srar.tscn\"), preload(\"res://score_star.tscn\")]
+
+func _ready() -> void:
+	pass 
+
+func _process(delta: float) -> void:
+	pass
+
+func _on_timer_timeout() -> void:
+	var item_scene : PackedScene = item_prefabs.pick_random()
+	var item_instance := item_scene.instantiate()
+	add_child(item_instance)
+	var viewport_size := get_viewport_rect().size
+	item_instance.position = Vector2(randf_range(0, viewport_size.x), randf_range(0, viewport_size.y))
+"
 
 [node name="RandomItemPlacer" type="Node2D" unique_id=1805904199]
-script = ExtResource("1_1wax0")
+script = SubResource("GDScript_madbp")
 
 [node name="Timer" type="Timer" parent="." unique_id=1958698147]
 
